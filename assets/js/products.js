@@ -21,77 +21,24 @@ const PRODUCTS = [
     description: 'Big wheels, big fun. This monster truck conquers every carpet mountain.'
   },
   {
-    id: 'doll-rainbow',
-    name: 'Rainbow Doll',
+    id: 'Rc helicopter',
+    name: 'Rc helicopter',
     price: 29.99,
-    category: 'Dolls',
+    category: 'Helicopter',
     rating: 4.8,
-    image: 'https://images-cdn.ubuy.co.in/633b4c355e15d131c8151e45-cheerwing-u12s-mini-rc-helicopter-with.jpg',
+    image: 'data:image/jpeg;base64,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tgyBH5mf5Vt+TsnUMwYcLi7qkU3O6oDYJ4IdLuNz3di5bh9fEGBtOwJLiQ1rQO0mIE95I/BdywaiMFtmMvLkno6Y1SOrqg6i1oklxeSfgunxFYxVrqOVKW6plfWODYNhAm1pN1D67usfi7j3QtdzPnnBramGUqwquaTLaXXPslpBI6o2cRBc0+Oyg45e1812Na2y9SdWcXNZVfUcGNphp1g6AZOqTEneONoOHB/RG2AcbuCfsUhA8pP9FjSKTHVkstO+1WmYl6QbnQRhtMUwdtTuu5w3jjY+0dnF/K6r6M7LXgTLu5qvr1rhgcXPnqt/ga3hoBG8bE79ykN9HeUvViypZ03gt0kukujwcTLT4iFqNeninonvRUpPfc4VUcA9rt32znGJB7WknnYE7GCQ50ZctJjppXUFazE7mXV0WGyu7e+tG1LNwex4DmuHBB3BWZc7QREQEREBERAREQEREBERAREQEREBEUbEbG2xOxfSvW6mPEOEkfAtgg9oIMhBhxwYY7CqjccNMUHNIf0hDWx4k8efYvzaMA+VsUqsywH1Wh79ALXFxYDDXEx1QeJcAPFdysPRzgNtVabvpbrRtTFd+sU2/wALQAJb97UtqtbW3s6AZaMbTaOGtAaB27AbK9MlqdkTWJ7vyjiOD3eHXWjFaJpPgGKkNJHAInkbHcdxVjgWUcZxumXYLbio0HSXNcwAOgGCSeYIPvC/QGYcj5dzHddJi9DXUgN1B72mBMDqOAI3PxUvLWXMNyxYupYS0tY55edTi46iA3k+DQt/arRzEQp5cOR5LyVjtpmNgxO1fS9qKztNRrCBPFN2ziJAcTsY23XW2ZawstHrTOmI7anWnzb7P4K4RYXva87tK8ViOznGY8h3WEXZvfR87oK7d3W/+FWHJaG8NJ7tgTHsnrLYsi5vtM3YYX0mmlWpnTWou9qm/jt3LTBg+BGxBClftdl75z96pzSeWPE7h45bp5cfAArm1a6rXXpFF7kahUeDTLaw0lrKzp0kngMMFvtFsloMdUk0S7IqfMOLYHZ2j6eN1KelzSHUz1i5pEHqCXEQe5UnyHmrGf8AfV4Ldh/w7YQY+/yD4S8K0wnJuBYUZpUQ98zrqdc6u8Ts0+IAQc99Hl3mDDKdahl23dXtTVe63dV2FNpM7u9l4IIJaHAzJiSV1PBW4m2wHy06m6rJno50gTsBO5gf32qciAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiCqu8t4Je3/TXdrRfU2Be5gJMcT/ABR2TMK0a1rGgMEAcAL6iAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIg//Z',
     description: 'A friendly doll with rainbow outfits and endless stories to tell.'
   },
   {
     id: 'doll-buddy',
     name: 'Buddy Bear Doll',
     price: 14.99,
-    category: 'Plushies',
+    category: 'excavator',
     rating: 4.4,
     image: 'https://m.media-amazon.com/images/I/71K4P2HEo6L._AC_UF1000,1000_QL80_.jpg',
     description: 'Super soft and cuddly plush bear. Perfect for naps and hugs.'
   },
-  // {
-  //   id: 'edu-blocks',
-  //   name: 'Smart Blocks 100pcs',
-  //   price: 34.99,
-  //   category: 'Educational',
-  //   rating: 4.7,
-  //   image: 'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?q=80&w=1200&auto=format&fit=crop',
-  //   description: 'Build, count, and learn colors with 100 durable interlocking blocks.'
-  // },
-  // {
-  //   id: 'edu-puzzle',
-  //   name: 'Animal Puzzle Set',
-  //   price: 16.99,
-  //   category: 'Educational',
-  //   rating: 4.3,
-  //   image: 'https://images.unsplash.com/photo-1610216705606-1f0f3f2f6c64?q=80&w=1200&auto=format&fit=crop',
-  //   description: 'Wooden animal puzzles that boost problem solving and fine motor skills.'
-  // },
-  // {
-  //   id: 'plush-unicorn',
-  //   name: 'Unicorn Plush',
-  //   price: 21.99,
-  //   category: 'Plushies',
-  //   rating: 4.9,
-  //   image: 'https://images.unsplash.com/photo-1617957743103-d9442af9e711?q=80&w=1200&auto=format&fit=crop',
-  //   description: 'Magically soft unicorn with sparkly horn and pastel mane.'
-  // },
-  // {
-  //   id: 'car-train',
-  //   name: 'Mini Train Set',
-  //   price: 27.5,
-  //   category: 'Educational',
-  //   rating: 4.6,
-  //   image: 'https://images.unsplash.com/photo-1484820540004-14229fe36ca4?q=80&w=1200&auto=format&fit=crop',
-  //   description: 'Snap-together tracks with a friendly train engine that encourages imaginative play.'
-  // },
-  // {
-  //   id: 'plush-dino',
-  //   name: 'Dino Plush',
-  //   price: 18.0,
-  //   category: 'Plushies',
-  //   rating: 4.1,
-  //   image: 'https://images.unsplash.com/photo-1609828834651-5873f9f5a21d?q=80&w=1200&auto=format&fit=crop',
-  //   description: 'Roar-some cuddles with this adorable dinosaur friend.'
-  // },
-  // {
-  //   id: 'doll-princess',
-  //   name: 'Princess Doll',
-  //   price: 26.49,
-  //   category: 'Dolls',
-  //   rating: 4.5,
-  //   image: 'https://images.unsplash.com/photo-1585386959984-a415522316dc?q=80&w=1200&auto=format&fit=crop',
-  //   description: 'Sparkly dress, bright smile, and stories from a magical kingdom.'
-  // }
+  
 ];
 
 function getProductById(productId) {

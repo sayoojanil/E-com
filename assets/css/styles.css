@@ -17,6 +17,111 @@
 html {
   scroll-behavior: smooth;
 }
+/* --- Featured Toys (Professional Look) --- */
+.featured-section {
+  background: linear-gradient(135deg, #f9fafc 0%, #f3f9ff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  width: 80px;
+  height: 3px;
+  background: var(--toy-pink);
+  transform: translateX(-50%);
+  border-radius: 3px;
+}
+
+/* Toy cards */
+.toy-card {
+  border: none;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  transition: all 0.35s ease;
+  overflow: hidden;
+  text-align: left;
+}
+
+.toy-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.toy-card img {
+  height: 220px;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+  background: linear-gradient(135deg, #f9f9f9, #ffffff);
+}
+
+.toy-card:hover img {
+  transform: scale(1.06);
+}
+
+.toy-card .card-body {
+  padding: 1.2rem 1.3rem;
+}
+
+.toy-card h6 {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.4rem;
+}
+
+.toy-card .badge-category {
+  background: linear-gradient(135deg, var(--toy-purple), var(--toy-pink));
+  font-size: 0.75rem;
+  border-radius: 8px;
+  padding: 0.25em 0.6em;
+}
+
+.toy-card .rating i {
+  color: #ffcc48;
+}
+
+.toy-card .fw-bold {
+  color: var(--toy-dark);
+  font-size: 1.05rem;
+}
+
+.toy-card .btn-toy,
+.toy-card .btn-outline-toy {
+  font-size: 0.85rem;
+  border-radius: 6px;
+}
+
+.toy-card .btn-toy i {
+  font-size: 0.8rem;
+}
+
+/* Subtle animation for card grid */
+#featuredGrid {
+  animation: fadeInUp 0.6s ease-in-out both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 body {
   background: var(--toy-bg);
@@ -40,6 +145,89 @@ body {
   color: #fff;
   padding: 100px 0;
 }
+/* --- Featured Toys --- */
+#featured {
+  background: #f9fafc;
+}
+
+#featured h2 {
+  color: #333;
+}
+
+.toy-card {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+.toy-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.toy-card img {
+  height: 220px;
+  object-fit: contain;
+  padding: 12px;
+}
+
+.toy-card .card-body {
+  padding: 1rem 1.2rem;
+}
+
+.badge-category {
+  background-color: var(--toy-yellow, #00c9a7);
+  color: #fff;
+  font-size: 0.75rem;
+  border-radius: 12px;
+  padding: 0.3em 0.7em;
+}
+
+.rating i {
+  color: #ffc107;
+  font-size: 0.9rem;
+}
+
+.btn-toy {
+  background-color: var(--toy-pink, #007dc5);
+  color: #fff;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-toy:hover {
+  background-color: #005f9e;
+}
+
+.btn-outline-toy {
+  color: var(--toy-pink, #007dc5);
+  border: 2px solid var(--toy-pink, #007dc5);
+  transition: all 0.3s ease;
+}
+
+.btn-outline-toy:hover {
+  background-color: var(--toy-pink, #007dc5);
+  color: #fff;
+}
+
+/* Responsive improvements */
+@media (max-width: 767px) {
+  .toy-card img {
+    height: 180px;
+  }
+  #featured h2 {
+    font-size: 1.6rem;
+  }
+  #featured p {
+    font-size: 0.95rem;
+  }
+  .btn-toy {
+    width: 100%;
+  }
+}
+
 
 .offer-section .offer-overlay {
   position: absolute;
@@ -76,14 +264,15 @@ body {
 }
 
 .offer-section .btn-light {
-  color: #ff4081;
-  background-color: #fff;
+  color: #222222;
+  background-color: #ffaa00;
   border: none;
   transition: all 0.3s ease;
+  border-radius: 2px;
 }
 
 .offer-section .btn-light:hover {
-  background-color: #ffe6f0;
+  background-color: #ffcd42;
   transform: translateY(-3px);
 }
 
@@ -198,5 +387,82 @@ footer a:hover {
   .hero h1 { font-size: 1.8rem; }
   .hero p { font-size: 1rem; }
 }
+/* --- Featured Section: Mobile Responsiveness --- */
+@media (max-width: 991px) {
+  /* Adjust grid spacing */
+  #featured .row {
+    row-gap: 1.5rem;
+  }
+
+  /* Make cards full width on smaller screens */
+  .toy-card {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .toy-card img {
+    height: 180px;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .toy-card .card-body {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .toy-card h6 {
+    font-size: 0.95rem;
+  }
+
+  .toy-card .fw-bold {
+    font-size: 1rem;
+  }
+
+  .toy-card .rating i {
+    font-size: 0.8rem;
+  }
+
+  /* Stack buttons neatly */
+  .toy-card .d-flex {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .toy-card .btn-toy,
+  .toy-card .btn-outline-toy {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+}
+
+/* Small screens (phones under 576px) */
+@media (max-width: 576px) {
+  #featured h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  #featured p {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .toy-card img {
+    height: 160px;
+  }
+
+  .toy-card .card-body {
+    padding: 0.8rem;
+  }
+
+  .toy-card .btn-toy,
+  .toy-card .btn-outline-toy {
+    font-size: 0.85rem;
+    padding: 0.55rem;
+  }
+}
+
 
 

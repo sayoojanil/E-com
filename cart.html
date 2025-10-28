@@ -50,7 +50,7 @@
             <div class="d-flex justify-content-between"><span>Tax</span><span id="tax">$0.00</span></div>
             <hr>
             <div class="d-flex justify-content-between fw-bold"><span>Total</span><span id="total">$0.00</span></div>
-            <button class="btn btn-toy w-100 mt-3" id="checkoutBtn">Checkout</button>
+            <button class="btn btn-toy w-100 mt-3" id="checkoutBtn">Order</button>
             <button class="btn btn-outline-toy w-100 mt-2" id="clearBtn">Clear Cart</button>
           </div>
         </div>
@@ -59,13 +59,49 @@
   </main>
 
   <!-- Footer -->
-  <footer class="py-4 bg-white border-top mt-4">
-    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
-      <div class="mb-2 mb-md-0">© <span id="year"></span> ToyJoy</div>
-      <ul class="nav">
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-      </ul>
+  <footer class="footer text-white pt-5" style="background: linear-gradient(135deg, #00c9a7, #007dc5);">
+    <div class="container">
+      <div class="row gy-4">
+        <!-- Brand and About -->
+        <div class="col-lg-4 col-md-6">
+          <h3 class="fw-bold mb-3">ToyJoy <span class="text-warning">🎈</span></h3>
+          <p class="small">
+            ToyJoy brings happiness and creativity to every child with colorful, safe, and high-quality toys.
+            Play. Learn. Smile.
+          </p>
+          <div class="d-flex gap-3 mt-3">
+            <a href="#" class="text-white"><i class="fa-brands fa-facebook fa-lg"></i></a>
+            <a href="#" class="text-white"><i class="fa-brands fa-instagram fa-lg"></i></a>
+            <a href="#" class="text-white"><i class="fa-brands fa-x-twitter fa-lg"></i></a>
+            <a href="#" class="text-white"><i class="fa-brands fa-youtube fa-lg"></i></a>
+          </div>
+        </div>
+
+        <!-- Shop Links -->
+        <div class="col-lg-2 col-md-6">
+          <h6 class="fw-bold mb-3 text-uppercase">Shop</h6>
+          <ul class="list-unstyled small">
+            <li><a href="shop.html" class="text-white text-decoration-none">All Toys</a></li>
+            <li><a href="#" class="text-white text-decoration-none">New Arrivals</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Best Sellers</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Offers</a></li>
+          </ul>
+        </div>
+
+        <!-- Support Links -->
+      
+
+      
+
+      <hr class="my-4 border-light opacity-50">
+
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center small">
+        <div>© <span id="year"></span> ToyJoy. All rights reserved.</div>
+        <div>
+          <a href="#" class="text-white text-decoration-none me-3">Terms of Service</a>
+          <a href="#" class="text-white text-decoration-none">Privacy Policy</a>
+        </div>
+      </div>
     </div>
   </footer>
 
@@ -106,7 +142,7 @@
     }
 
     document.getElementById('clearBtn').addEventListener('click', () => { clearCart(); renderCart(); });
-    document.getElementById('checkoutBtn').addEventListener('click', () => { alert('Checkout complete! (demo)'); clearCart(); renderCart(); });
+    document.getElementById('checkoutBtn').addEventListener('click', () => { alert('checkout complete.'); clearCart(); renderCart(); });
     renderCart();
   </script>
 </body>
