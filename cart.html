@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Cart - ToyJoy</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">ToyJoy <span class="logo-dot"></span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav1">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav1">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item ms-2">
+            <a class="btn btn-sm btn-outline-toy position-relative" href="cart.html">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" data-cart-count>0</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="py-4">
+    <div class="container">
+      <h1 class="h3 fw-bold mb-3">Your Cart</h1>
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <div class="bg-white rounded-16 shadow-soft p-3" id="cartItems">
+            <!-- Items injected by JS -->
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="bg-white rounded-16 shadow-soft p-3">
+            <h5 class="fw-bold">Order Summary</h5>
+            <div class="d-flex justify-content-between mt-3"><span>Subtotal</span><span id="subtotal">$0.00</span></div>
+            <div class="d-flex justify-content-between"><span>Shipping</span><span id="shipping">$0.00</span></div>
+            <div class="d-flex justify-content-between"><span>Tax</span><span id="tax">$0.00</span></div>
+            <hr>
+            <div class="d-flex justify-content-between fw-bold"><span>Total</span><span id="total">$0.00</span></div>
+            <button class="btn btn-toy w-100 mt-3" id="checkoutBtn">Checkout</button>
+            <button class="btn btn-outline-toy w-100 mt-2" id="clearBtn">Clear Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-4 bg-white border-top mt-4">
+    <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+      <div class="mb-2 mb-md-0">© <span id="year"></span> ToyJoy</div>
+      <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function renderCart() {
+      const container = document.getElementById('cartItems');
+      const items = window.getCartItemsDetailed();
+      if (items.length === 0) {
+        container.innerHTML = '<div class="text-center text-muted py-5">Your cart is empty.</div>';
+      } else {
+        container.innerHTML = items.map(({ product, quantity }) => `
+          <div class="d-flex align-items-center justify-content-between border-bottom py-3">
+            <div class="d-flex align-items-center gap-3">
+              <img src="${product.image}" class="cart-item-img" alt="${product.name}">
+              <div>
+                <div class="fw-bold">${product.name}</div>
+                <div class="small text-muted">${formatPrice(product.price)}</div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <input type="number" min="1" class="form-control form-control-sm qty-input" value="${quantity}" onchange="updateQuantity('${product.id}', this.value); renderCart();">
+              <button class="btn btn-sm btn-outline-danger" onclick="removeFromCart('${product.id}'); renderCart();"><i class="fa-solid fa-trash"></i></button>
+            </div>
+          </div>`).join('');
+      }
+
+      const { subtotal, shipping, tax, total } = window.computeCartTotals();
+      document.getElementById('subtotal').textContent = formatPrice(subtotal);
+      document.getElementById('shipping').textContent = formatPrice(shipping);
+      document.getElementById('tax').textContent = formatPrice(tax);
+      document.getElementById('total').textContent = formatPrice(total);
+    }
+
+    document.getElementById('clearBtn').addEventListener('click', () => { clearCart(); renderCart(); });
+    document.getElementById('checkoutBtn').addEventListener('click', () => { alert('Checkout complete! (demo)'); clearCart(); renderCart(); });
+    renderCart();
+  </script>
+</body>
+</html>
+
+
