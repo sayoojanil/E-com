@@ -65,12 +65,12 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer text-white pt-5" style="background: linear-gradient(135deg, #00c9a7, #007dc5);">
+  <footer class="footer text-white pt-5" style="background-color: #d08b00;">
     <div class="container">
       <div class="row gy-4">
         <!-- Brand and About -->
         <div class="col-lg-4 col-md-6">
-          <h3 class="fw-bold mb-3">ToyJoy <span class="text-warning">🎈</span></h3>
+          <h3 class="fw-bold mb-3">ToyJoy <span class="text-warning"> </span></h3>
           <p class="small">
             ToyJoy brings happiness and creativity to every child with colorful, safe, and high-quality toys.
             Play. Learn. Smile.
@@ -146,8 +146,7 @@
               <div class="d-flex align-items-center justify-content-between">
                 <div class="fw-bold">${formatPrice(p.price)}</div>
                 <div class="d-flex gap-2">
-                  <button class="btn btn-sm btn-toy" onclick="addToCart('${p.id}')"><i class="fa-solid fa-cart-plus me-1"></i>Add</button>
-                  <a class="btn btn-sm btn-outline-toy" href="product.html?id=${p.id}">View</a>
+                <a class="btn btn-sm btn-outline" href="product.html?id=${p.id}"><i class="fa-solid fa-eye"></i></a>
                 </div>
               </div>
             </div>

@@ -1,7 +1,5 @@
 /* Toy E-commerce Theme - Playful, bright, responsive */
-
 @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@400;500;600;700;800&display=swap');
-
 
 :root {
   --toy-yellow: #0bffc2;
@@ -14,14 +12,95 @@
   --toy-bg: #ffffff;
 }
 
-html {
-  scroll-behavior: smooth;
+body {
+  background: var(--toy-bg);
+  font-family: 'Spartan', sans-serif;
 }
-/* --- Featured Toys (Professional Look) --- */
-.featured-section {
-  background: linear-gradient(135deg, #f9fafc 0%, #f3f9ff 100%);
+
+/* Navbar */
+.shadow-lg {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.414) !important;
+}
+
+.nav-link.active {
+  color: var(--toy-pink) !important;
+}
+
+/* --- Hero Section --- */
+.hero {
+  background: rgb(247, 145, 67);
+  background-size: cover;
   position: relative;
   overflow: hidden;
+}
+
+.hero .floating-shape {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 28px;
+  filter: blur(1px);
+  opacity: 0.18;
+  animation: float 8s ease-in-out infinite;
+}
+
+/* HERO IMAGE & BUTTON CENTER FIX */
+.hero .row {
+  display: flex;
+  align-items: center;
+}
+
+.hero img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .hero .row {
+    flex-direction: column-reverse; /* Moves image below text */
+    text-align: center;
+  }
+
+  .hero .col-lg-6 {
+    width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
+    margin-top: 1rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero a.btn {
+    display: inline-block;
+    margin-top: 10px;
+    width: 80%;
+  }
+
+  .hero img {
+    margin-bottom: 1.2rem;
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero h1 { font-size: 1.8rem; }
+  .hero p { font-size: 1rem; }
+}
+
+/* --- Featured Section --- */
+#featured {
+  background: #f9fafc;
+}
+
+#featured h2 {
+  color: #333;
 }
 
 .section-title {
@@ -42,7 +121,13 @@ html {
   border-radius: 3px;
 }
 
-/* Toy cards */
+.featured-section {
+  background: linear-gradient(135deg, #f9fafc 0%, #f3f9ff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- Toy Cards --- */
 .toy-card {
   border: none;
   border-radius: 16px;
@@ -61,8 +146,9 @@ html {
 .toy-card img {
   height: 220px;
   object-fit: contain;
-  transition: transform 0.4s ease;
+  padding: 12px;
   background: linear-gradient(135deg, #f9f9f9, #ffffff);
+  transition: transform 0.4s ease;
 }
 
 .toy-card:hover img {
@@ -70,7 +156,7 @@ html {
 }
 
 .toy-card .card-body {
-  padding: 1.2rem 1.3rem;
+  padding: 1.2rem;
 }
 
 .toy-card h6 {
@@ -80,15 +166,17 @@ html {
   margin-bottom: 0.4rem;
 }
 
-.toy-card .badge-category {
+.badge-category {
   background: linear-gradient(135deg, var(--toy-purple), var(--toy-pink));
   font-size: 0.75rem;
   border-radius: 8px;
   padding: 0.25em 0.6em;
+  color: #fff;
 }
 
-.toy-card .rating i {
+.rating i {
   color: #ffcc48;
+  font-size: 0.9rem;
 }
 
 .toy-card .fw-bold {
@@ -96,17 +184,32 @@ html {
   font-size: 1.05rem;
 }
 
-.toy-card .btn-toy,
-.toy-card .btn-outline-toy {
-  font-size: 0.85rem;
-  border-radius: 6px;
+.btn-toy {
+  background-color: #242424;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  transition: all 0.3s ease;
 }
 
-.toy-card .btn-toy i {
-  font-size: 0.8rem;
+.btn-toy:hover {
+  background-color: #3b3b3b;
+  color: #fff;
 }
 
-/* Subtle animation for card grid */
+.btn-outline-toy {
+  color: var(--toy-pink);
+  border: 2px solid var(--toy-pink);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-toy:hover {
+  background: var(--toy-pink);
+  color: #fff;
+}
+
+/* --- Animation --- */
 #featuredGrid {
   animation: fadeInUp 0.6s ease-in-out both;
 }
@@ -122,112 +225,13 @@ html {
   }
 }
 
-
-body {
-  background: var(--toy-bg);
-  font-family: 'Spartan', sans-serif;
-}
-
-/* Navbar */
-.shadow-lg {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.414) !important;
-}
-
-
-.nav-link.active {
-  color: var(--toy-pink) !important;
-}
-
-/* Offer Section */
+/* --- Offer Section --- */
 .offer-section {
   background: url('https://t4.ftcdn.net/jpg/07/38/04/47/360_F_738044728_WQl8AC5gUiU2BIG65afjeq7fnQQYUaxk.jpg') center/cover no-repeat;
   position: relative;
   color: #fff;
   padding: 100px 0;
 }
-/* --- Featured Toys --- */
-#featured {
-  background: #f9fafc;
-}
-
-#featured h2 {
-  color: #333;
-}
-
-.toy-card {
-  border: none;
-  border-radius: 16px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  overflow: hidden;
-}
-
-.toy-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-}
-
-.toy-card img {
-  height: 220px;
-  object-fit: contain;
-  padding: 12px;
-}
-
-.toy-card .card-body {
-  padding: 1rem 1.2rem;
-}
-
-.badge-category {
-  background-color: var(--toy-yellow, #00c9a7);
-  color: #fff;
-  font-size: 0.75rem;
-  border-radius: 12px;
-  padding: 0.3em 0.7em;
-}
-
-.rating i {
-  color: #ffc107;
-  font-size: 0.9rem;
-}
-
-.btn-toy {
-  background-color: var(--toy-pink, #007dc5);
-  color: #fff;
-  border: none;
-  transition: all 0.3s ease;
-}
-
-.btn-toy:hover {
-  background-color: #005f9e;
-}
-
-.btn-outline-toy {
-  color: var(--toy-pink, #007dc5);
-  border: 2px solid var(--toy-pink, #007dc5);
-  transition: all 0.3s ease;
-}
-
-.btn-outline-toy:hover {
-  background-color: var(--toy-pink, #007dc5);
-  color: #fff;
-}
-
-/* Responsive improvements */
-@media (max-width: 767px) {
-  .toy-card img {
-    height: 180px;
-  }
-  #featured h2 {
-    font-size: 1.6rem;
-  }
-  #featured p {
-    font-size: 0.95rem;
-  }
-  .btn-toy {
-    width: 100%;
-  }
-}
-
 
 .offer-section .offer-overlay {
   position: absolute;
@@ -235,6 +239,28 @@ body {
   background: rgba(0, 0, 0, 0.45);
 }
 
+.offer-section h2 {
+  font-size: 2.5rem;
+}
+
+.offer-section p {
+  font-size: 1.1rem;
+}
+
+.offer-section .btn-light {
+  color: #222;
+  background-color: #ffaa00;
+  border: none;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.offer-section .btn-light:hover {
+  background-color: #ffcd42;
+  transform: translateY(-3px);
+}
+
+/* --- Footer --- */
 .footer a:hover {
   color: #ffeb3b !important;
   text-decoration: underline;
@@ -251,106 +277,9 @@ body {
 }
 
 .footer hr {
-  border-color: rgba(255,255,255,0.3);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
-
-.offer-section h2 {
-  font-size: 2.5rem;
-}
-
-.offer-section p {
-  font-size: 1.1rem;
-}
-
-.offer-section .btn-light {
-  color: #222222;
-  background-color: #ffaa00;
-  border: none;
-  transition: all 0.3s ease;
-  border-radius: 2px;
-}
-
-.offer-section .btn-light:hover {
-  background-color: #ffcd42;
-  transform: translateY(-3px);
-}
-
-
-/* Hero */
-  .hero {
-    background: rgb(247, 145, 67);
-    background-size: cover;
-    position: relative;
-    overflow: hidden; 
-
-}
-
-.hero .floating-shape {
-  position: absolute;
-  width: 160px;
-  height: 160px;
-  border-radius: 28px;
-  filter: blur(1px);
-  opacity: 0.18;
-  animation: float 8s ease-in-out infinite;
-}
-
-/* Cards */
-.toy-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 0.9rem 2rem rgba(0,0,0,0.12);
-  border: 0;
-  border-radius: 2px;
-}
-
-.toy-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0.9rem 2rem rgb(166, 166, 166);
-}
-
-.badge-category {
-  background: linear-gradient(135deg, var(--toy-purple), var(--toy-pink));
-}
-
-/* Buttons */
-.btn-toy {
-  background-color: #0091f9;
-  border: none;
-  border-radius: 1px;
-  
-  color: #ffffff;
-}
-
-.btn-toy:hover {
-  color: #ffffff;
-  background-color: #0769d8;
-}
-
-.btn-outline-toy {
-  border-color: var(--toy-pink);
-  color: var(--toy-pink); 
-  border-radius: 3px;
-}
-
-.btn-outline-toy:hover {
-  background: var(--toy-pink);
-  color: #fff;
-}
-
-/* Utilities */
-.rounded-12 { border-radius: 12px; }
-.rounded-16 { border-radius: 16px; }
-.shadow-soft { box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-.bg-soft-yellow { background: #fff6cf; }
-.bg-soft-blue { background: #e9f7ff; }
-.bg-soft-pink { background: #ffe9f3; }
-.bg-soft-green { background: #eaffe8; }
-
-/* Ratings */
-.rating i { color: #ffcc48; }
-
-/* Footer */
 footer a {
   color: inherit;
 }
@@ -359,18 +288,18 @@ footer a:hover {
   color: var(--toy-pink);
 }
 
-/* Forms */
+/* --- Form Focus --- */
 .form-control:focus {
   border-color: var(--toy-pink);
   box-shadow: 0 0 0 0.2rem rgba(255, 126, 182, 0.25);
 }
 
-/* Newsletter */
+/* --- Newsletter --- */
 .newsletter {
   background: linear-gradient(135deg, #fff, #ffeef6);
 }
 
-/* Cart */
+/* --- Cart --- */
 .cart-item-img {
   width: 72px;
   height: 72px;
@@ -382,19 +311,21 @@ footer a:hover {
   width: 80px;
 }
 
-/* Responsive tweaks */
-@media (max-width: 576px) {
-  .hero h1 { font-size: 1.8rem; }
-  .hero p { font-size: 1rem; }
-}
-/* --- Featured Section: Mobile Responsiveness --- */
+/* --- Utilities --- */
+.rounded-12 { border-radius: 12px; }
+.rounded-16 { border-radius: 16px; }
+.shadow-soft { box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+.bg-soft-yellow { background: #fff6cf; }
+.bg-soft-blue { background: #e9f7ff; }
+.bg-soft-pink { background: #ffe9f3; }
+.bg-soft-green { background: #eaffe8; }
+
+/* --- Responsive --- */
 @media (max-width: 991px) {
-  /* Adjust grid spacing */
   #featured .row {
     row-gap: 1.5rem;
   }
 
-  /* Make cards full width on smaller screens */
   .toy-card {
     width: 100%;
     margin: 0 auto;
@@ -403,7 +334,6 @@ footer a:hover {
   .toy-card img {
     height: 180px;
     width: 100%;
-    object-fit: contain;
   }
 
   .toy-card .card-body {
@@ -411,19 +341,6 @@ footer a:hover {
     padding: 1rem;
   }
 
-  .toy-card h6 {
-    font-size: 0.95rem;
-  }
-
-  .toy-card .fw-bold {
-    font-size: 1rem;
-  }
-
-  .toy-card .rating i {
-    font-size: 0.8rem;
-  }
-
-  /* Stack buttons neatly */
   .toy-card .d-flex {
     flex-direction: column;
     gap: 0.6rem;
@@ -437,12 +354,15 @@ footer a:hover {
   }
 }
 
-/* Small screens (phones under 576px) */
 @media (max-width: 576px) {
   #featured h2 {
     font-size: 1.5rem;
     text-align: center;
   }
+
+  .btn-toy {
+    width: 100%;
+  } 
 
   #featured p {
     font-size: 0.9rem;
@@ -463,6 +383,3 @@ footer a:hover {
     padding: 0.55rem;
   }
 }
-
-
-

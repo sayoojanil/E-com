@@ -83,7 +83,7 @@
       container.innerHTML = `
         <div class="row g-4 align-items-start">
           <div class="col-md-6">
-            <img src="${p.image}" class="img-fluid rounded-16 shadow-soft" alt="${p.name}">
+            <img src="${p.image}" class="img-fluid rounded-16 " alt="${p.name}">
           </div>
           <div class="col-md-6">
             <h1 class="h3 fw-bold mb-1">${p.name}</h1>
@@ -91,8 +91,8 @@
             <div class="h4 fw-bold mb-3">${formatPrice(p.price)}</div>
             <p class="text-muted">${p.description}</p>
             <div class="d-flex gap-2 mt-3">
-              <button class="btn btn-toy btn-lg" onclick="addToCart('${p.id}')"><i class="fa-solid fa-cart-plus me-2"></i>Add to Cart</button>
-              <a href="shop.html" class="btn btn-outline-toy btn-lg">Back to Shop</a>
+              <button class="btn btn-toy btn-md" onclick="addToCart('${p.id}')"><i class="fa-solid fa-cart-plus me-2"></i>Add to Cart</button>
+              <a href="shop.html" class="btn btn-outline-toy btn-sm">Back to Shop</a>
             </div>
           </div>
         </div>`;
@@ -110,8 +110,7 @@
               <div class="d-flex align-items-center justify-content-between">
                 <div class="fw-bold">${formatPrice(p.price)}</div>
                 <div class="d-flex gap-2">
-                  <button class="btn btn-sm btn-toy" onclick="addToCart('${p.id}')"><i class="fa-solid fa-cart-plus me-1"></i>Add</button>
-                  <a class="btn btn-sm btn-outline-toy" href="product.html?id=${p.id}">View</a>
+                <a class="btn btn-sm btn-outline" href="product.html?id=${p.id}"><i class="fa-solid fa-eye"></i></a>
                 </div>
               </div>
             </div>
