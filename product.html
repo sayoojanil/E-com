@@ -47,11 +47,7 @@
   <!-- Footer -->
   <footer class="py-4 bg-white border-top mt-4">
     <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
-      <div class="mb-2 mb-md-0">© <span id="year"></span> ToyJoy</div>
-      <ul class="nav">
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-      </ul>
+     
     </div>
   </footer>
 
@@ -74,7 +70,6 @@
   <script src="assets/js/cart.js"></script>
   <script src="assets/js/main.js"></script>
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
     const params = new URLSearchParams(location.search);
     const id = params.get('id');
     const product = window.getProductById(id) || window.PRODUCTS[0];
@@ -88,7 +83,6 @@
           </div>
           <div class="col-md-6">
             <h1 class="h3 fw-bold mb-1">${p.name}</h1>
-            <div class="rating mb-2">${renderRatingStars(p.rating)}</div>
             <div class="h4 fw-bold mb-3">${formatPrice(p.price)}</div>
             <p class="text-muted">${p.description}</p>
             <div class="d-flex gap-2 mt-3">
@@ -106,7 +100,6 @@
             <img src="${p.image}" class="card-img-top" alt="${p.name}">
             <div class="card-body">
               <h6 class="card-title mb-1">${p.name}</h6>
-              <div class="small rating mb-2">${renderRatingStars(p.rating)}</div>
               <div class="d-flex align-items-center justify-content-between">
                 <div class="fw-bold">${formatPrice(p.price)}</div>
                 <div class="d-flex gap-2">

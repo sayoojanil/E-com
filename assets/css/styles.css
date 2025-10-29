@@ -20,36 +20,20 @@ body {
 
 /* Navbar */
 .shadow-lg {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.414) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.414) !important;       /*!important is for every code/
   padding: 25px;
 }
 
 
-.nav-link.active {
-  color: var(--badge) !important;
+.nav-link.active {        
+  color: var(--badge) !important;      /*!important is for overriding bootstrap's active color*/
 }
 
 /* --- Hero Section --- */
 .hero {
   background: rgb(10, 30, 84);
   background-size: cover;
-  position: relative;
   overflow: hidden;
-}
-
-
-
-/* HERO IMAGE & BUTTON CENTER FIX */
-.hero .row {
-  display: flex;
-  align-items: center;
-}
-
-.hero img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
 }
 
 @media (max-width: 768px) {
@@ -139,8 +123,8 @@ body {
 .toy-card {
   border: none;
   border-radius: 16px;
-  background: #fff;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  background: #eeeeee;
+  box-shadow: 0 4px 18px rgba(54, 54, 54, 0.293);
   transition: all 0.35s ease;
   overflow: hidden;
   text-align: left;
@@ -177,15 +161,11 @@ body {
 .badge-category {
   background: linear-gradient(135deg, var(--badge), var(--badge));
   font-size: 0.75rem;
-  border-radius: 8px;
+  border-radius: 100px;
   padding: 0.25em 0.6em;
   color: #ffffff;
 }
 
-.rating i {
-  color: #ffcc48;
-  font-size: 0.9rem;
-}
 
 .toy-card .fw-bold {
   color: var(--toy-dark);
@@ -200,8 +180,6 @@ body {
   border-radius: 3px;
   transition: all 0.3s ease;
 }
-
-
 
 .btn-toy:hover {
   background-color: #3b3b3b;
@@ -247,7 +225,7 @@ body {
 .offer-section .offer-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(49, 49, 49, 0.45);
 }
 
 .offer-section h2 {
@@ -268,62 +246,30 @@ body {
 }
 
 .offer-section .btn-light:hover {
-  background-color: #ffcd42;
+  background-color: #949494;
   transform: translateY(-3px);
 }
 
 /* --- Footer --- */
 .footer a:hover {
-  color: #ffeb3b !important;
+  color: #599eff !important;
   text-decoration: underline;
 }
 
-.footer input.form-control {
-  border: none;
-  border-radius: 50px;
-  padding-left: 15px;
-}
 
-.footer button.btn {
-  border-radius: 50px;
-}
-
-.footer hr {
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-footer a {
-  color: inherit;
-}
-
-footer a:hover {
-  color: var(--toy-pink);
-}
-
-/* --- Form Focus --- */
-.form-control:focus {
-  border-color: var(--toy-pink);
-  box-shadow: 0 0 0 0.2rem rgba(255, 126, 182, 0.25);
-}
-
-/* --- Newsletter --- */
-.newsletter {
-  background: linear-gradient(135deg, #fff, #ffeef6);
-}
 
 /* --- Cart --- */
 .cart-item-img {
-  width: 72px;
-  height: 72px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
-  border-radius: 12px;
 }
 
 .qty-input {
   width: 80px;
 }
 
-/* --- Utilities --- */
+--- Utilities ---
 .rounded-12 { border-radius: 12px; }
 .rounded-16 { border-radius: 16px; }
 .shadow-soft { box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
@@ -353,16 +299,11 @@ footer a:hover {
     padding: 1rem;
   }
 
-  .toy-card .d-flex {
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-
   .toy-card .btn-toy,
   .toy-card .btn-outline-toy {
     width: 100%;
     font-size: 0.9rem;
-    padding: 0.6rem;
+    padding: 0.6rem;  
   }
 }
 
