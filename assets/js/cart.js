@@ -36,7 +36,15 @@ function removeFromCart(productId) {
 function updateQuantity(productId, quantity) {
   const cart = loadCart();
   if (!cart[productId]) return;
-  const q = Math.max(1, parseInt(quantity, 10) || 1);
+
+  // Convert safely to integer
+  let q = parseInt(quantity, 10);
+
+  // Handle invalid or partial inputs (like ".", "", "-", etc.)
+  if (isNaN(q) || q < 1) {
+    q = 1;
+  }
+
   cart[productId].quantity = q;
   saveCart(cart);
   updateCartCountUI();
@@ -50,10 +58,12 @@ function clearCart() {
 function getCartItemsDetailed() {
   const cart = loadCart();
   const items = Object.values(cart);
-  return items.map(({ productId, quantity }) => {
-    const product = window.getProductById(productId);
-    return { product, quantity };
-  }).filter(i => i.product);
+  return items
+    .map(({ productId, quantity }) => {
+      const product = window.getProductById(productId);
+      return { product, quantity };
+    })
+    .filter(i => i.product);
 }
 
 function computeCartTotals() {
@@ -81,6 +91,14 @@ function showCartToast(message) {
   toast.show();
 }
 
+//  Optional: Prevent typing invalid characters in quantity inputs
+document.addEventListener('input', (e) => {
+  if (e.target.matches('input[type="number"]')) {
+    // Only allow digits
+    e.target.value = e.target.value.replace(/[^\d]/g, '');
+  }
+});
+
 // expose
 window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
@@ -91,5 +109,3 @@ window.computeCartTotals = computeCartTotals;
 window.updateCartCountUI = updateCartCountUI;
 
 document.addEventListener('DOMContentLoaded', updateCartCountUI);
-
-
