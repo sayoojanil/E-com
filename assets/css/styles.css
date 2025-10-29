@@ -10,6 +10,7 @@
   --toy-dark: #2a2a2a;
   --toy-muted: #6c757d;
   --toy-bg: #ffffff;
+  --badge: rgb(10, 30, 84);
 }
 
 body {
@@ -20,29 +21,23 @@ body {
 /* Navbar */
 .shadow-lg {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.414) !important;
+  padding: 25px;
 }
 
+
 .nav-link.active {
-  color: var(--toy-pink) !important;
+  color: var(--badge) !important;
 }
 
 /* --- Hero Section --- */
 .hero {
-  background: rgb(247, 145, 67);
+  background: rgb(10, 30, 84);
   background-size: cover;
   position: relative;
   overflow: hidden;
 }
 
-.hero .floating-shape {
-  position: absolute;
-  width: 160px;
-  height: 160px;
-  border-radius: 28px;
-  filter: blur(1px);
-  opacity: 0.18;
-  animation: float 8s ease-in-out infinite;
-}
+
 
 /* HERO IMAGE & BUTTON CENTER FIX */
 .hero .row {
@@ -102,12 +97,25 @@ body {
 #featured h2 {
   color: #333;
 }
+.btn-group{
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+
+
 
 .section-title {
   font-size: 2.2rem;
   position: relative;
   display: inline-block;
 }
+.badge-category.bg-dark {
+  background: #2f2f2f !important;
+  color: #fff !important;
+  border: none;
+}
+
 
 .section-title::after {
   content: "";
@@ -167,11 +175,11 @@ body {
 }
 
 .badge-category {
-  background: linear-gradient(135deg, var(--toy-purple), var(--toy-pink));
+  background: linear-gradient(135deg, var(--badge), var(--badge));
   font-size: 0.75rem;
   border-radius: 8px;
   padding: 0.25em 0.6em;
-  color: #fff;
+  color: #ffffff;
 }
 
 .rating i {
@@ -185,12 +193,15 @@ body {
 }
 
 .btn-toy {
-  background-color: #242424;
-  color: #fff;
+  background-color: #272727;
+  color: #ffffff;
+  font-weight: 600;
   border: none;
   border-radius: 3px;
   transition: all 0.3s ease;
 }
+
+
 
 .btn-toy:hover {
   background-color: #3b3b3b;
@@ -227,7 +238,7 @@ body {
 
 /* --- Offer Section --- */
 .offer-section {
-  background: url('https://t4.ftcdn.net/jpg/07/38/04/47/360_F_738044728_WQl8AC5gUiU2BIG65afjeq7fnQQYUaxk.jpg') center/cover no-repeat;
+  background: url('https://unblast.com/wp-content/uploads/2021/01/Space-Background-Images.jpg') center/cover no-repeat;
   position: relative;
   color: #fff;
   padding: 100px 0;
@@ -248,9 +259,10 @@ body {
 }
 
 .offer-section .btn-light {
-  color: #222;
-  background-color: #ffaa00;
+  color: #000000;
+  background-color: #ffffff;
   border: none;
+  font-weight: 600;
   border-radius: 2px;
   transition: all 0.3s ease;
 }

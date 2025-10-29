@@ -12,7 +12,7 @@
   <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-lg sticky-top">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">ToyJoy <span class="logo-dot"></span></a>
+<a class="navbar-brand fw-bold" href="index.html" style="font-size: 1.8rem;">ToyJoy <span class="logo-dot"></span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav1">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -59,7 +59,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer text-white pt-5" style="background-color: #d08b00;">
+  <footer class="footer text-white pt-5" style="background-color:var(--badge);">
     <div class="container">
       <div class="row gy-4">
         <!-- Brand and About -->
@@ -109,42 +109,72 @@
   <script src="assets/js/products.js"></script>
   <script src="assets/js/cart.js"></script>
   <script src="assets/js/main.js"></script>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+ <script>
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-    function renderCart() {
-      const container = document.getElementById('cartItems');
-      const items = window.getCartItemsDetailed();
-      if (items.length === 0) {
-        container.innerHTML = '<div class="text-center text-muted py-5">Your cart is empty.</div>';
-      } else {
-        container.innerHTML = items.map(({ product, quantity }) => `
-          <div class="d-flex align-items-center justify-content-between border-bottom py-3">
-            <div class="d-flex align-items-center gap-3">
-              <img src="${product.image}" class="cart-item-img" alt="${product.name}">
-              <div>
-                <div class="fw-bold">${product.name}</div>
-                <div class="small text-muted">${formatPrice(product.price)}</div>
-              </div>
-            </div>
-            <div class="d-flex align-items-center gap-2">
-              <input type="number" min="1" class="form-control form-control-sm qty-input" value="${quantity}" onchange="updateQuantity('${product.id}', this.value); renderCart();">
-              <button class="btn btn-sm btn-outline-danger" onclick="removeFromCart('${product.id}'); renderCart();"><i class="fa-solid fa-trash"></i></button>
-            </div>
-          </div>`).join('');
-      }
+  function renderCart() {
+    const container = document.getElementById('cartItems');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    const clearBtn = document.getElementById('clearBtn'); // <-- added
+    const items = window.getCartItemsDetailed();
 
-      const { subtotal, shipping, tax, total } = window.computeCartTotals();
-      document.getElementById('subtotal').textContent = formatPrice(subtotal);
-      document.getElementById('shipping').textContent = formatPrice(shipping);
-      document.getElementById('tax').textContent = formatPrice(tax);
-      document.getElementById('total').textContent = formatPrice(total);
+    if (items.length === 0) {
+      container.innerHTML = '<div class="text-center text-muted py-5">Your cart is empty.</div>';
+      checkoutBtn.disabled = true;
+      checkoutBtn.classList.add('disabled');
+      clearBtn.disabled = true; // <-- disable Clear Cart
+      clearBtn.classList.add('disabled'); // optional style
+    } else {
+      container.innerHTML = items.map(({ product, quantity }) => `
+        <div class="d-flex align-items-center justify-content-between border-bottom py-3">
+          <div class="d-flex align-items-center gap-3">
+            <img src="${product.image}" class="cart-item-img" alt="${product.name}">
+            <div>
+              <div class="fw-bold">${product.name}</div>
+              <div class="small text-muted">${formatPrice(product.price)}</div>
+            </div>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <input type="number" min="1" class="form-control form-control-sm qty-input"
+              value="${quantity}"
+              onchange="updateQuantity('${product.id}', this.value); renderCart();">
+            <button class="btn btn-sm btn-danger"
+              onclick="removeFromCart('${product.id}'); renderCart();">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      `).join('');
+
+      checkoutBtn.disabled = false;
+      checkoutBtn.classList.remove('disabled');
+      clearBtn.disabled = false; // <-- enable Clear Cart
+      clearBtn.classList.remove('disabled');
     }
 
-    document.getElementById('clearBtn').addEventListener('click', () => { clearCart(); renderCart(); });
-    document.getElementById('checkoutBtn').addEventListener('click', () => { alert('checkout complete.'); clearCart(); renderCart(); });
+    // Update totals
+    const { subtotal, shipping, tax, total } = window.computeCartTotals();
+    document.getElementById('subtotal').textContent = formatPrice(subtotal);
+    document.getElementById('shipping').textContent = formatPrice(shipping);
+    document.getElementById('tax').textContent = formatPrice(tax);
+    document.getElementById('total').textContent = formatPrice(total);
+  }
+
+  document.getElementById('clearBtn').addEventListener('click', () => {
+    clearCart();
     renderCart();
-  </script>
+  });
+
+  document.getElementById('checkoutBtn').addEventListener('click', () => {
+    alert('Checkout complete.');
+    clearCart();
+    renderCart();
+  });
+
+  renderCart();
+</script>
+
+
 </body>
 </html>
 

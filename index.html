@@ -13,8 +13,7 @@
   <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-lg sticky-top">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">
-        ToyJoy <span class="logo-dot"></span>
+<a class="navbar-brand fw-bold" href="index.html" style="font-size: 1.8rem;">ToyJoy <span class="logo-dot"></span></a>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav1">
         <span class="navbar-toggler-icon"></span>
@@ -26,7 +25,7 @@
           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
           <li class="nav-item ms-2">
-            <a class="btn btn-sm btn-outline-toy position-relative" href="cart.html">
+            <a class="btn btn-sm btn-outline-toy position-relative me-2" href="cart.html">
               <i class="fa-solid fa-cart-shopping"></i>
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" data-cart-count>0</span>
             </a>
@@ -41,12 +40,12 @@
   <div class="container py-4">
     <div class="row align-items-center g-4">
       <div class="col-lg-6">
-        <h1 class="display-5 fw-bold ">Colorful, safe, and smile-making toys</h1>
-        <p class="lead text-muted">Discover playful picks that spark imagination and joyful learning</p>
+        <h1 class="display-5 fw-bold text-white ">Colorful, safe, and smile-making toys</h1>
+        <p class="lead  text-white">Discover playful picks that spark imagination and joyful learning</p>
         <a href="shop.html" class="btn btn-toy btn-lg mt-2">Shop Now</a>
       </div>
       <div class="col-lg-6 text-center">
-        <img src="77086-4_01-removebg-preview.png" class="img-fluid rounded-16 w-100" alt="Toys banner">
+        <img src="Silver_201be8d0_thumbnail_1024-removebg-preview.png" class="img-fluid rounded-16 w-100" alt="Toys banner">
       </div>
     </div>
   </div>
@@ -55,8 +54,9 @@
 <!-- Featured Toys -->
 <section class="py-5 featured-section" id="featured">
   <div class="container text-center">
-    <h2 class="fw-bold mb-2 section-title">Our  Featured Toys</h2>
-    <p class="text-muted mb-5">Explore our top picks—loved by kids and trusted by parents for endless fun!</p>
+    <h2 class="fw-bold mb-2 ">Our  Featured Toys</h2>
+    <br>
+    <!-- <p class="text-muted mb-5">Explore our top picks—loved by kids and trusted by parents for endless fun!</p> -->
     
     <div id="featuredGrid" class="row g-4 justify-content-center"></div>
 
@@ -111,7 +111,7 @@
     <div class="container position-relative">
       <h2 class="fw-bold mb-3">Big Smiles, Bigger Savings!</h2>
       <p class="lead mb-4">Get up to 40% off on selected toys this festive season. Limited time only!</p>
-      <a href="shop.html" class="btn btn-lg btn-light fw-bold shadow">Grab the Offer</a>
+      <a href="shop.html" class="btn btn-light ">Grab the Offer</a>
     </div>
   </section>
 
@@ -139,7 +139,8 @@
   </section>
 
     <!-- Advanced Footer -->
-  <footer class="footer text-white pt-5" style="background-color: #d08b00;">
+  <footer class="footer text-white pt-5" style="background-color: rgb(10, 30, 84);
+;">
     <div class="container">
       <div class="row gy-4">
         <!-- Brand and About -->
@@ -212,13 +213,13 @@
         <div class="card toy-card h-100">
           <img src="${p.image}" class="card-img-top" alt="${p.name}">
           <div class="card-body">
-            <span class="badge badge-category mb-2">${p.category}</span>
+<span class="badge badge-category mb-2 bg-light">${p.category}</span>
             <h6 class="card-title mb-1">${p.name}</h6>
             <div class="small rating mb-2">${renderRatingStars(p.rating)}</div>
             <div class="d-flex align-items-center justify-content-between">
               <div class="fw-bold">${formatPrice(p.price)}</div>
               <div class="d-flex gap-2">
-                <a class="btn btn-sm btn-outline" href="product.html?id=${p.id}"><i class="fa-solid fa-eye"></i></a>
+                <a class="btn btn-sm btn-outline" href="product.html?id=${p.id}"></i>View Details</a>
               </div>
             </div>
           </div>
