@@ -11,7 +11,7 @@
 <body>
   <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-lg sticky-top">
-    <div class="container">
+    <div class="container">   
 <a class="navbar-brand fw-bold" href="index.html" style="font-size: 1.8rem;">ToyJoy <span class="logo-dot"></span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav1">
         <span class="navbar-toggler-icon"></span>
@@ -100,12 +100,14 @@
   <script src="assets/js/cart.js"></script>
   <script src="assets/js/main.js"></script>
  <script>
-
+// This is the main function that updates the entire cart UI.
   function renderCart() {
     const container = document.getElementById('cartItems');
     const checkoutBtn = document.getElementById('checkoutBtn');
     const clearBtn = document.getElementById('clearBtn'); // <-- added
     const items = window.getCartItemsDetailed();
+
+    // Disables both Order and Clear Cart buttons to prevent user actions when there are no items.
 
     if (items.length === 0) {
       container.innerHTML = '<div class="text-center text-muted py-5">Your cart is empty.</div>';
@@ -114,6 +116,9 @@
       clearBtn.disabled = true; // <-- disable Clear Cart
       clearBtn.classList.add('disabled'); // optional style
     } else {
+
+      // If the cart has items, it generates HTML for each one:
+
       container.innerHTML = items.map(({ product, quantity }) => `
         <div class="d-flex align-items-center justify-content-between border-bottom py-3">
           <div class="d-flex align-items-center gap-3">
@@ -146,16 +151,16 @@
     document.getElementById('subtotal').textContent = formatPrice(subtotal);
     document.getElementById('shipping').textContent = formatPrice(shipping);
     document.getElementById('tax').textContent = formatPrice(tax);
-    document.getElementById('total').textContent = formatPrice(total);
+    document.getElementById('total').textContent = formatPrice(total);                  //The totals are then displayed in the summary panel on the right.
   }
 
   document.getElementById('clearBtn').addEventListener('click', () => {
     clearCart();
-    renderCart();
+    renderCart();              //Re-renders to show “Your cart is empty.”
   });
 
   document.getElementById('checkoutBtn').addEventListener('click', () => {
-    alert('Checkout complete.');
+    alert('Checkout complete.');        //Displays a simple alert confirming order completion.
     clearCart();
     renderCart();
   });

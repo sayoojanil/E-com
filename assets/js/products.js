@@ -1,7 +1,7 @@
 // Product catalog for the toy shop
 // Each product: id, name, price, category, rating (0-5), image, description
 
-const PRODUCTS = [
+const PRODUCTS = [               //all toy datas
   {
     id: 'car-speedster',
     name: 'Speedster Car',
@@ -41,11 +41,16 @@ const PRODUCTS = [
   
 ];
 
-function getProductById(productId) {
+
+//fucntion for getting product by id
+
+function getProductById(productId) {    //fetch a single product by id
   return PRODUCTS.find(p => p.id === productId) || null;
 }
 
-function getRelatedProducts(productId, limit = 4) {
+//function for getting related products
+
+function getRelatedProducts(productId, limit = 4) {                     //suggest related toys
   const product = getProductById(productId);
   if (!product) return PRODUCTS.slice(0, limit);
   const related = PRODUCTS.filter(p => p.category === product.category && p.id !== product.id);
@@ -54,8 +59,8 @@ function getRelatedProducts(productId, limit = 4) {
   return [...related, ...others].slice(0, limit);
 }
 
-// Expose to global
-window.PRODUCTS = PRODUCTS;
+// Expose to global for using in other files(codes)
+window.PRODUCTS = PRODUCTS;                                       //Makes them usable in other codes
 window.getProductById = getProductById;
 window.getRelatedProducts = getRelatedProducts;
 
