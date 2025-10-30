@@ -20,14 +20,10 @@ body {
 
 /* Navbar */
 .shadow-lg {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.414) !important;       /*!important is for every code/
-  padding: 25px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.414) !important;
 }
 
 
-.nav-link.active {        
-  color: var(--badge) !important;      /*!important is for overriding bootstrap's active color*/
-}
 
 /* --- Hero Section --- */
 .hero {
@@ -187,8 +183,8 @@ body {
 }
 
 .btn-outline-toy {
-  color: var(--toy-pink);
-  border: 2px solid var(--toy-pink);
+  color: var(--badge);
+  
   border-radius: 3px;
   transition: all 0.3s ease;
 }

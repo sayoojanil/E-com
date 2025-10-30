@@ -143,15 +143,15 @@
 
     // Extra validation before sending
     if (name.length < 3) {
-      alert("Please enter a valid name.");
+      alert("Please enter a valid name.");                             // name length is lessthan 3 shows error
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       alert("Please enter a valid email address.");
       return;
     }
-    if (message.length < 5) {
-      alert("Please enter a more detailed message.");
+    if (message.length < 3) {
+      alert("Please enter a more detailed message.");                   // name message length is lessthan 3 shows error
       return;
     }
 
