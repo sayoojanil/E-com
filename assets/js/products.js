@@ -39,6 +39,7 @@ const PRODUCTS = [               //all toy datas
     description: 'Super soft and cuddly plush bear. Perfect for naps and hugs.'
   },
   
+  
 ];
 
 
